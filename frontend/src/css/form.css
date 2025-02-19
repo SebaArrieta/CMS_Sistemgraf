@@ -1,0 +1,63 @@
+/* General form styling */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Labels */
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Input fields */
+  .form-control,
+  #password {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Placeholder text */
+  .form-control::placeholder {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  /* Password input inside label */
+  label[for="password"] {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Submit button */
+  .btn-primary-form {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Align submit button */
+  .float-right {
+    text-align: right;
+    margin-top: 15px;
+  }
+  
