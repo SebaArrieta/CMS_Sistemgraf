@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from '../images/logo.svg';
 import '../css/App.css';
 
@@ -20,10 +21,8 @@ function App() {
         </a>
       </header>
 
-    </div>
-        <body>
-          asdasd
-        </body>
+      </div>
+
     </>
   );
 }
