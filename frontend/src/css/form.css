@@ -1,63 +1,145 @@
-/* General form styling */
+/* Fondo y tipografía general */
+body {
+  background: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
 .container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Labels */
-  .form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  /* Input fields */
-  .form-control,
-  #password {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Placeholder text */
-  .form-control::placeholder {
-    color: #999;
-    font-size: 14px;
-  }
-  
-  /* Password input inside label */
-  label[for="password"] {
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  /* Submit button */
-  .btn-primary-form {
-    background-color: #007bff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Align submit button */
-  .float-right {
-    text-align: right;
-    margin-top: 15px;
-  }
-  
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezados */
+h2, h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos de la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table th, 
+.table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background: #007bff;
+  color: #fff;
+  text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background: #f1f1f1;
+}
+
+/* Contenedor scrollable para la tabla (opcional) */
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Estilos para formularios */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilos para botones */
+.btn, .btn-primary-form, .btn-secondary, .btn-info, .btn-warning, .btn-danger {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary-form {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-primary-form:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #565e64;
+}
+
+.btn-info {
+  background: #17a2b8;
+  color: #fff;
+}
+
+.btn-info:hover {
+  background: #117a8b;
+}
+
+.btn-warning {
+  background: #ffc107;
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background: #e0a800;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #bd2130;
+}
+
+/* Utilidades de márgenes */
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}

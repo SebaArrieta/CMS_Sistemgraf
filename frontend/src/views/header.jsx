@@ -15,8 +15,7 @@ export default function Header() {
             <div>  <img src={Logo} className="App-logo" /> </div>
 
             </Navbar.Brand>
-            <Link to="/user" className="btn btn-primary">Usuarios</Link>
-            <div className="text-white"> cosa</div>
+            <Link to="/user" className="btn-btn-primary">Usuarios</Link>
             {/*isAuthenticated ? (<Logout />): (<></>)*/}
         </Navbar>
     )

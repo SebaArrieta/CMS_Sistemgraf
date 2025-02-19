@@ -10,17 +10,13 @@ export default function Create() {
     const submitForm = async (e) => {
 		e.preventDefault();
 		try {
-			const lowercaseEmail = state.email.toLowerCase();
-			if (lowercaseEmail.endsWith("@sistemgraf.com")){
-				setstate({ ...state, permiso: true})
-			  }
-			  else{
-				setstate({ ...state, permiso: false})
-			  }
+			console.log(e.Email);
 			const response = await createUser(state);
-			history(`/home`);
+			alert("User created successfully:\n" + JSON.stringify(response, null, 2));
+			history(`/users`);
 		} catch (error) {
 			console.log(error);
+			alert("Error creando el usuario: " + error.message);
 		}
 	};
 	return (
@@ -32,9 +28,23 @@ export default function Create() {
 						className="form-control"
 						id="nombre"
 						type="text"
-						value={state.nombre}
+						value={state.Name}
 						onChange={(e) => {
-							setstate({ ...state, nombre: e.target.value });
+							setstate({ ...state, Name: e.target.value });
+						}}
+						placeholder="Ingrese Nombre"
+						required
+					/>
+				</div>
+				<div className="form-group">
+					<label htmlFor="Apellido">Apellido</label>
+					<input
+						className="form-control"
+						id="apellido"
+						type="text"
+						value={state.Lastname}
+						onChange={(e) => {
+							setstate({ ...state, Lastname: e.target.value });
 						}}
 						placeholder="Ingrese Nombre"
 						required
@@ -46,22 +56,37 @@ export default function Create() {
 						className="form-control"
 						id="email"
 						type="email"
-						value={state.email}
+						value={state.Email}
 						onChange={(e) => {
-							setstate({ ...state, email: e.target.value });
+							setstate({ ...state, Email: e.target.value });
 						}}
 						placeholder="Ingrese Email"
 						required
 					/>
 				</div>
+				<div className="form-group">
+					<label htmlFor="Type">Tipo:</label>
+					<select
+						className="form-control"
+						id="Type"
+						value={state.Type}
+						onChange={(e) => setstate({ ...state, Type: e.target.value })}
+						required
+					>
+						<option value="">Seleccione un tipo</option>
+						<option value="Admin">Admin</option>
+						<option value="User">User</option>
+						<option value="Moderator">Moderator</option>
+					</select>
+				</div>
 				<div>
-					<label htmlFor="password">Password: 
+					<label htmlFor="Type">Password: 
 					<input
 						type="password"
 						id="password"
-						value={state.password}
+						value={state.Password}
 						onChange={(e) => {
-							setstate({ ...state, password: e.target.value });
+							setstate({ ...state, Password: e.target.value });
 						}}
 					/> 
 					</label>

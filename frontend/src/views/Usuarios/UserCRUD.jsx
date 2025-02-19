@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
+import { getUsers } from "../../repositorios/user";
 import "../../css/form.css";
-//import UserAdd from "../views/Usuarios/CrearUsuario";
+import UserAdd from "./CrearUsuario";
 export default function UserCRUD() {
-    const [view, setView] = useState("list");
-    const [users, setUsers] = useState([
-        { id: 1, nombre: "John Doe", email: "john@example.com", tipo: "Admin" },
-        { id: 2, nombre: "Jane Smith", email: "jane@example.com", tipo: "User" },
-        { id: 3, nombre: "Alice Johnson", email: "alice@example.com", tipo: "Moderator" },
-    ]);
+    const [view, setView] = useState(false);
+    const [users, setUsers] = useState([]);
     const navigate = useNavigate();
     const { id } = useParams();
     const selectedUser = users.find((u) => u.id === Number(id));
 
     const [formState, setFormState] = useState({ nombre: "", email: "", password: "", tipo: "User" });
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const data = await getUsers();
+                setUsers(data);
+            } catch (error) {
+                console.error("Error al obtener usuarios:", error);
+            }
+        };
+
+        fetchUsers();
+    }, []);
 
     // Function to create or update a user
     const handleSubmit = (e) => {
@@ -38,11 +48,19 @@ export default function UserCRUD() {
             <h2>Gestión de Usuarios</h2>
 
             {/* List Users */}
+            
             {!id && (
                 <>
-                    <button onClick={() => setView("UserAdd")} className="btn-primary-form">
-                        Crear Usuario
-                    </button>
+                    {!view ? (
+                        <button 
+                            onClick={() => setView(true)} 
+                            className="btn-primary-form"
+                        >
+                            Crear Usuario
+                        </button>
+                    ) : (
+                        <UserAdd />
+                    )}
                     <table className="table mt-3">
                         <thead>
                             <tr>
@@ -55,13 +73,13 @@ export default function UserCRUD() {
                         </thead>
                         <tbody>
                             {users.map((user) => (
-                                <tr key={user.id}>
-                                    <td>{user.id}</td>
-                                    <td>{user.nombre}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.tipo}</td>
+                                <tr key={user.ID}>
+                                    <td>{user.ID}</td>
+                                    <td>{user.Name}</td>
+                                    <td>{user.Email}</td>
+                                    <td>{user.Type}</td>
                                     <td>
-                                        <button onClick={() => navigate(`/users/show/${user.id}`)} className="btn btn-info">Ver</button>
+                                        <button onClick={() => navigate(`/users/${user.ID}`)} className="btn btn-info">Ver</button>
                                         <button onClick={() => setFormState(user)} className="btn btn-warning mx-2">Editar</button>
                                         <button onClick={() => handleDelete(user.id)} className="btn btn-danger">Eliminar</button>
                                     </td>
